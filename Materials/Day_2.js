@@ -1,3 +1,57 @@
+var cars = ["Saab", "Volvo", "BMW", "Toyota", "Daihatsu", "Ferrari", "Opel"];
+
+console.log(cars.join(', '));
+
+for (var i = 0; i < cars.length; i++) {
+  cars[i] += '123';
+}
+
+console.log(cars.join(', '));
+
+// Exercise for loop
+var profile = {
+  firstName: 'John',
+  lastName: 'Doe',
+  age: 24,
+};
+
+var profile2 = {
+  firstName: 'Alex',
+  lastName: 'Doe',
+  age: 128,
+};
+
+var profile3 = {
+  firstName: 'Robert',
+  lastName: 'Doe',
+  age: 37,
+};
+
+var arrayProfile = [profile, profile2, profile3];
+
+// 1. Halo semua, nama saya xxx, umur saya xxx.
+// 2. Total umur kami xxx. Menggunakan for loop.
+
+console.log('Halo semua, nama saya ' +
+            arrayProfile[0].firstName + ' ' +
+            arrayProfile[0].lastName +
+            ', umur saya ' +
+            arrayProfile[0].age
+           )
+
+var total = arrayProfile[0].age +
+            arrayProfile[1].age +
+            arrayProfile[2].age;
+
+console.log('Total umur kami ' + total);
+
+var total2 = 0;
+
+for (var i = 0; i <= 2; i++) {
+  total2 += arrayProfile[i].age;
+  console.log('Total umur kami ' + total2);
+}
+
 // Exercise 1
 
 let line = 5;
