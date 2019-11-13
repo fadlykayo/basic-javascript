@@ -158,3 +158,5 @@ var sum = ages.reduce((a, b) => a + b);
 
 console.log(sum);
 */
+
+let kata = "";
