@@ -53,7 +53,39 @@ for (var i = 0; i <= 2; i++) {
   total2 += arrayProfile[i].age;
 }
 
+// Exercise Temperature
+
 console.log('Total umur kami ' + total2);
+
+var city = [
+  {
+    name: 'Jakarta',
+    temperature: 32,
+//     category: 'hot',
+  },
+  {
+    name: 'Bandung',
+    temperature: 22,
+//     category: 'fair',
+  },
+  {
+    name: 'Sydney',
+    temperature: 2,
+//     category: 'cold',
+  }
+]
+
+for (var i = 0; i < city.length; i++) {
+  if (city[i].temperature > 27) {
+    city[i].category = 'hot';
+  } else if (15 < city[i].temperature <= 27) {
+    city[i].category = 'fair';
+  } else {
+    city[i].category = 'cold';
+  }
+}
+
+console.log(city)
 
 // Exercise 1
 
@@ -89,6 +121,18 @@ while (j < 5) {
   j++;
 }
 
+let line = 5;
+
+for(let i = line; i > 0; i--) {
+  let result = '';
+
+  for(let j = i; j > 0; j--) {
+    result += '*';
+  }
+
+  console.log(result);
+}
+
 // Exercise 3
 
 let line = 9;
@@ -101,18 +145,6 @@ for (let i = 0; i < line; i++) {
   } else {
     str = str.substr(1);
   }
-}
-
-let line = 5;
-
-for(let i = line; i > 0; i--) {
-  let result = '';
-
-  for(let j = i; j > 0; j--) {
-    result += '*';
-  }
-
-  console.log(result);
 }
 
 /*

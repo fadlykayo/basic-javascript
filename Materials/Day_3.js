@@ -55,6 +55,66 @@ Exercise:
 <100 A
 6. Write a JavaScript program to sum the multiples of 3 under 100.
 
+Solution:
+1.
+function myFunction(p1, p2) {
+  if (p1 > p2) {
+    console.log(p1);
+    return p1;
+  } else {
+    console.log(p2);
+    return p2;
+  }
+}
+
+myFunction(50,10);
+
+2.
+function myFunction2(x, y, z) {
+  if (x<y && x<z) {
+    if (y<z) {
+      console.log(x + ", " + y + ", " +z);
+    } else {
+      console.log(x + ", " + z + ", " +y);
+    }
+  } else if (y<x && y<z) {
+    if (x<z) {
+        console.log(y + ", " + x + ", " +z);
+    } else {
+        console.log(y + ", " + z + ", " +x);
+    }
+  } else if (z<x && z<y) {
+    if (x<y) {
+      console.log(z + ", " + x + ", " +y);
+    } else {
+      console.log(z + ", " + y + ", " +x);
+    }
+  }
+}
+
+function myFunction2(fruits) {
+  let hasil;
+
+  hasil = fruits.sort(function (a,b) {
+  	return a-b;
+  });
+
+  return hasil;
+}
+
+4.
+function myFunction() {
+  for (var i = 1; i < 16; i++) {
+    let a = i % 2;
+
+    if (!a) {
+      console.log(i + 'genap');
+    } else {
+      console.log(i + 'ganjil');
+    }
+  }
+}
+
 ===== Javascript Array & Object
 
 Exercise:
@@ -158,5 +218,3 @@ var sum = ages.reduce((a, b) => a + b);
 
 console.log(sum);
 */
-
-let kata = "";
