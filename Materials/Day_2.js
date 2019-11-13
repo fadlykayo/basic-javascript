@@ -1,3 +1,5 @@
+// Looping using for
+
 var cars = ["Saab", "Volvo", "BMW", "Toyota", "Daihatsu", "Ferrari", "Opel"];
 
 console.log(cars.join(', '));
@@ -49,8 +51,9 @@ var total2 = 0;
 
 for (var i = 0; i <= 2; i++) {
   total2 += arrayProfile[i].age;
-  console.log('Total umur kami ' + total2);
 }
+
+console.log('Total umur kami ' + total2);
 
 // Exercise 1
 

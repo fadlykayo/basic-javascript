@@ -25,7 +25,6 @@ lastname = "Peterson";
 last_name = "Johnson"; // snake_case
 // last-name = "Otto"; // not allowed
 
-
 // Exercise
 var answer4 = answer1 + answer2;
 var answer5 = answer1 + ". " + answer2;
@@ -36,26 +35,34 @@ var y3 = 5;
 var z3 = 6;
 
 // Exercise
-(x3 == y3);
-(x3 == z3);
-(x3 === y3);
+console.log(x3 == y3);
+console.log(x3 == z3);
+console.log(x3 === y3);
 
 // JavaScript arrays are written with square brackets []. Array items are separated by commas.
 var cars = ["Saab", "Volvo", "BMW"];
 
 // Exercise
-cars[0];
-cars[1];
-cars[2];
-cars[3];
+console.log(cars[0]);
+console.log(cars[1]);
+console.log(cars[2]);
+console.log(cars[3]);
 
 // Exercise
 cars[0] = "Opel";
+console.log(cars[0]); // Opel
+
 let length = cars.length;
-cars[length - 1];
+console.log(cars[length]); // undefined
+console.log(cars[length - 1]); // BMW
+
 cars[length] = "Toyota";
+console.log(cars[length]); // Toyota
+
 cars[cars.length + 2] = "Daihatsu";
-cars.length;
+
+console.log(cars.length); // 7
+console.log(cars);
 
 // JavaScript objects are written with curly braces {}. Object properties are written as name:value pairs, separated by commas.
 var myProfile3 = "John Doe";
@@ -71,13 +78,14 @@ var myProfile = {
 };
 
 // Exercise
-myProfile.firstName;
-myProfile.lastName;
-myProfile.cars.join(', ');
+console.log(myProfile.firstName);
+console.log(myProfile.lastName);
+console.log(myProfile.cars.join(', '));
 
 myProfile.city = "Jakarta";
 myProfile.age = 30;
 myProfile["age"] = 35;
+
 myProfile.fullName();
 
 // Javascript Events
