@@ -79,23 +79,23 @@ myFunction(50,10);
 
 2.
 function myFunction2(x, y, z) {
-  if (x<y && x<z) {
-    if (y<z) {
-      console.log(x + ", " + y + ", " +z);
+  if (x < y && x < z) {
+    if (y < z) {
+      return x + ", " + y + ", " + z;
     } else {
-      console.log(x + ", " + z + ", " +y);
+      return x + ", " + z + ", " + y;
     }
-  } else if (y<x && y<z) {
-    if (x<z) {
-        console.log(y + ", " + x + ", " +z);
+  } else if (y < x && y < z) {
+    if (x < z) {
+        return y + ", " + x + ", " + z;
     } else {
-        console.log(y + ", " + z + ", " +x);
+        return y + ", " + z + ", " + x;
     }
-  } else if (z<x && z<y) {
-    if (x<y) {
-      console.log(z + ", " + x + ", " +y);
+  } else if (z < x && z < y) {
+    if (x < y) {
+      return z + ", " + x + ", " + y;
     } else {
-      console.log(z + ", " + y + ", " +x);
+      return z + ", " + y + ", " + x;
     }
   }
 }
@@ -111,7 +111,7 @@ function myFunction2(arrayData) {
 }
 
 3.
-function myFunction2(a, b, c) {
+function myFunction3(a, b, c) {
   if (a>b && a>c) {
     return a;
   } else if (b>a && b>c) {
@@ -122,7 +122,7 @@ function myFunction2(a, b, c) {
 }
 
 4.
-function myFunction() {
+function myFunction4() {
   for (var i = 1; i < 16; i++) {
     let a = i % 2;
 
@@ -174,7 +174,7 @@ function hitungJumlah() {
   return result;
 }
 
-===== Javascript Array & Object
+===== Javascript Array & Object =====
 
 Exercise:
 
@@ -214,6 +214,34 @@ let attendance = [
 1. condition = true
 2. count the length of the result
 3. print the result
+
+Solution:
+
+function showName() {
+  let result = '';
+
+  for (let i = 0; i < attendance.length; i++) {
+    result += attendance[i].name + ', '
+  }
+
+  return result;
+}
+
+console.log(showName())
+
+function showAbsen() {
+  let result = ''
+
+  for (let i = 0; i < attendance.length; i++) {
+    if (attendance[i].present === true) {
+      result += attendance[i].name + ', '
+    }
+  }
+
+  return result;
+}
+
+console.log(showAbsen())
 
 ===== Javascript Array Iteration =====
 
@@ -280,8 +308,3 @@ https://www.w3schools.com/js/js_functions.asp
 https://www.w3schools.com/js/js_array_methods.asp
 https://www.w3resource.com/javascript-exercises/javascript-conditional-statements-and-loops-exercises.php
 */
-
-
-let x = 0;
-
-let y = 0;
