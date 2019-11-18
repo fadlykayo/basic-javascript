@@ -280,3 +280,6 @@ https://www.w3schools.com/js/js_functions.asp
 https://www.w3schools.com/js/js_array_methods.asp
 https://www.w3resource.com/javascript-exercises/javascript-conditional-statements-and-loops-exercises.php
 */
+
+
+let x = 0;
