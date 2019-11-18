@@ -283,3 +283,5 @@ https://www.w3resource.com/javascript-exercises/javascript-conditional-statement
 
 
 let x = 0;
+
+let y = 0;
