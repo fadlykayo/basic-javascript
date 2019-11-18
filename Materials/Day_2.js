@@ -53,9 +53,9 @@ for (var i = 0; i <= 2; i++) {
   total2 += arrayProfile[i].age;
 }
 
-// Exercise Temperature
-
 console.log('Total umur kami ' + total2);
+
+// Exercise Temperature
 
 var city = [
   {
@@ -88,6 +88,7 @@ for (var i = 0; i < city.length; i++) {
 console.log(city)
 
 // Exercise 1
+// Solution 1
 
 let line = 5;
 let str = '';
@@ -96,6 +97,8 @@ for (let i = 0; i < line; i++) {
   str = str + '*';
   console.log(str);
 }
+
+// Solution 2
 
 let i = 0;
 
@@ -106,6 +109,7 @@ while (i < 5) {
 }
 
 // Exercise 2
+// Solution 1
 
 let str2 = '*****';
 let j = 0;
@@ -115,18 +119,22 @@ for (let j = 0; j < line; j++) {
   str2 = str2.substr(1);
 }
 
+// Solution 2
+
 while (j < 5) {
   console.log(str2);
   str2 = str2.substr(1);
   j++;
 }
 
+// Solution 3
+
 let line = 5;
 
-for(let i = line; i > 0; i--) {
+for(let i = 0; i < 5; i++) {
   let result = '';
 
-  for(let j = i; j > 0; j--) {
+  for(let j = 5; j > i; j--) {
     result += '*';
   }
 
@@ -151,5 +159,4 @@ for (let i = 0; i < line; i++) {
 Resources:
 https://www.w3schools.com/js/js_loop_while.asp
 https://www.w3schools.com/jsref/jsref_substr.asp
-https://www.w3schools.com/js/js_functions.asp
 */

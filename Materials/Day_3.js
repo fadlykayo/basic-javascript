@@ -48,6 +48,14 @@ Exercise:
 3. Write a JavaScript conditional statement to find the largest of three numbers.
 4. Write a JavaScript for loop that will iterate from 0 to 15. For each iteration, it will check if the current number is odd or even.
 5. Write a JavaScript program which compute, the average marks of the following students. Then, this average is used to determine the corresponding grade.
+== List of students Score: ==
+David	80
+Vinoth	77
+Divya	88
+Ishitha	95
+Thomas	68
+
+== Table of grades: ==
 <60	F
 <70	D
 <80	C
@@ -92,14 +100,25 @@ function myFunction2(x, y, z) {
   }
 }
 
-function myFunction2(fruits) {
+function myFunction2(arrayData) {
   let hasil;
 
-  hasil = fruits.sort(function (a,b) {
+  hasil = arrayData.sort(function (a,b) {
   	return a-b;
   });
 
   return hasil;
+}
+
+3.
+function myFunction2(a, b, c) {
+  if (a>b && a>c) {
+    return a;
+  } else if (b>a && b>c) {
+    return b;
+  } else {
+    return c;
+  }
 }
 
 4.
@@ -115,35 +134,76 @@ function myFunction() {
   }
 }
 
+5.
+function hitungGrade(students) {
+  let jumlahScore = 0;
+  let rataRata = 0;
+
+  for (let i = 0; i < students.length; i++) {
+    jumlahScore += students[i];
+  }
+
+  rataRata = jumlahScore / students.length;
+  console.log(rataRata);
+
+  if (rataRata < 60) {
+    return "Grade : F";
+  } else if (rataRata < 70) {
+    return "Grade : D";
+  } else if (rataRata < 80) {
+    return "Grade : C";
+  } else if (rataRata < 90) {
+    return "Grade : B";
+  } else if (rataRata < 100) {
+    return "Grade : A";
+  }
+}
+
+console.log(hitungGrade([80,77,88,95,68]));
+
+6.
+function hitungJumlah() {
+  let result = 0;
+
+  for (let i = 0; i < 100; i++) {
+    if (i % 3 === 0) {
+      result += i;
+    }
+  }
+
+  return result;
+}
+
 ===== Javascript Array & Object
 
 Exercise:
 
 let attendance = [
-    {
-        name: 'Miss Scarlet',
-        present: true,
-    },
-    {
-        name: 'Mrs. White',
-        present: false,
-    },
-    {
-        name: 'Reverend Green',
-        present: true,
-    },
-    {
-        name: 'Rusty',
-        present: false,
-    },
-    {
-        name: 'Colonel Mustard',
-        present: true,
-    },
-    {
-        name: 'Professor Plum',
-        present: true,
-    }
+  {
+    name: 'Miss Scarlet',
+    present: true,
+  },
+  {
+    name: 'Mrs. White',
+    present: false,
+  },
+  {
+    name: 'Reverend Green',
+    present: true,
+  },
+  {
+    name: 'Rusty',
+    present: false,
+  },
+  {
+    name: 'Colonel Mustard',
+    present: true,
+  },
+  {
+    name: 'Professor Plum',
+    present: true,
+  }
+]
 
 1. every each name tambahkan + ' Green';
 2. print the result
@@ -154,23 +214,6 @@ let attendance = [
 1. condition = true
 2. count the length of the result
 3. print the result
-
-===== Javascript Array Methods =====
-
-Popular array methods:
-.length - to get the length of an array
-.join() - joins all array elements into a string
-.indexOf() - searches an array for an element value and returns its position
-.pop() - removes the last array element
-.push() - adds a new element to an array (at the end)
-.shift() - removes the first array element
-.unshift() - adds a new element to an array (at the beginning)
-.concat() - creates a new array by merging (concatenating) existing arrays
-.splice() - add/remove element to/from an array in a specific position
-.slice() - slices out a piece of an array into a new array
-
-Resources:
-https://www.w3schools.com/js/js_array_methods.asp
 
 ===== Javascript Array Iteration =====
 
@@ -217,4 +260,23 @@ var ages = users.map(user => user.age);
 var sum = ages.reduce((a, b) => a + b);
 
 console.log(sum);
+
+===== Javascript Array Methods =====
+
+Popular array methods:
+.length - to get the length of an array
+.join() - joins all array elements into a string
+.indexOf() - searches an array for an element value and returns its position
+.pop() - removes the last array element
+.push() - adds a new element to an array (at the end)
+.shift() - removes the first array element
+.unshift() - adds a new element to an array (at the beginning)
+.concat() - creates a new array by merging (concatenating) existing arrays
+.splice() - add/remove element to/from an array in a specific position
+.slice() - slices out a piece of an array into a new array
+
+Resources:
+https://www.w3schools.com/js/js_functions.asp
+https://www.w3schools.com/js/js_array_methods.asp
+https://www.w3resource.com/javascript-exercises/javascript-conditional-statements-and-loops-exercises.php
 */
