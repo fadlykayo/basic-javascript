@@ -302,6 +302,8 @@ Popular array methods:
 .concat() - creates a new array by merging (concatenating) existing arrays
 .splice() - add/remove element to/from an array in a specific position
 .slice() - slices out a piece of an array into a new array
+.sort() - sorts an array alphabetically
+.reverse() - reverses the elements in an array
 
 Resources:
 https://www.w3schools.com/js/js_functions.asp
