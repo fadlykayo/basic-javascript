@@ -1,0 +1,23 @@
+.paragraph_1 {
+  color: white; font-size: 50px;
+}
+
+#paragraph_2 {
+  background-color: green;
+}
+
+ul.to_do_list {
+  list-style-type: square
+}
+
+ol.resep_masak {
+  list-style-type: upper-latin;
+}
+
+table.table_absen {
+  background-color: #004445;
+}
+
+tr.table_absen {
+  background-color: #2c7873;
+}
