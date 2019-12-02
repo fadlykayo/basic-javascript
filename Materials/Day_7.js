@@ -1,7 +1,7 @@
 let input = document.getElementById("input");
 let content = document.getElementById("content");
 let header_info = document.getElementById("header_info");
-let localData = localStorage.getItem('arrayInputValue').split(","); // menampilkan data di localStorage dan merubahnya menjadi array
+let localData = localStorage.getItem('arrayInputValue') ? localStorage.getItem('arrayInputValue').split(",") : []; // menampilkan data di localStorage dan merubahnya menjadi array
 
 let arrayInputValue = [];
 
