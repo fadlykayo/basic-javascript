@@ -17,6 +17,12 @@
   flex: 1;
 }
 
+.header_info {
+  margin-top: 5px;
+  font-size: 8px;
+  color: white;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -24,9 +30,18 @@
 }
 
 .content_span {
-  flex: 1;
-  padding: 10px 20px;
+  padding: 15px 20px;
   color: #da2d2d;
   background-color: #f6da63;
   margin-bottom: 10px;
+}
+
+.content_span_close {
+  padding: 0px 20px;
+  position: absolute;
+  right: 10px;
+}
+
+.content_none {
+  display: none;
 }
