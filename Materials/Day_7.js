@@ -10,6 +10,7 @@ function add_value() {
     let spanClose = document.createElement("SPAN"); // membuat element Span <span></span>
     spanClose.className = "content_span_close"; // memberi element Span sebuah class <span class="content_span_close"></span>
     spanClose.innerHTML = "\u00D7" // memberi text "x" ke dalam element Span <span class="content_span_close">x</span>
+
     span.appendChild(spanClose); // menggabungkan spanClose ke dalam span
 
     let content = document.getElementById("content");
@@ -22,10 +23,8 @@ function add_value() {
 }
 
 // handle event onenter
-input.addEventListener("keyup", function (event) {
-  if (event.keyCode === 13 && input.value !== "") {
-    event.preventDefault();
-
+input.addEventListener("keyup", function (keyboardEvent) {
+  if (keyboardEvent.keyCode === 13 && input.value !== "") {
     document.getElementById("input_button").click();
   }
 });
