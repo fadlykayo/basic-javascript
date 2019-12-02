@@ -50,7 +50,7 @@ function delete_value() {
   }
 }
 
-function add_value() {
+function add_value() { 
   let inputValue = input.value; // mengambil nilai input
 
   if (inputValue !== "") {
