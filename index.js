@@ -1,44 +1,77 @@
+let input = document.getElementById("input");
+let content = document.getElementById("content");
+let header_info = document.getElementById("header_info");
+let localData = localStorage.getItem('arrayInputValue') ? localStorage.getItem('arrayInputValue').split(",") : []; // menampilkan data di localStorage dan merubahnya menjadi array
+
+let arrayInputValue = [];
+
+// mengecek value localStorage dan mengassign nya ke array
+if (!arrayInputValue.length && localStorage.getItem("arrayInputValue") && localStorage.getItem("arrayInputValue").length) {
+  arrayInputValue = localStorage.getItem("arrayInputValue").split(",");
+}
+
+if (localData.length && localData[0] !== "") {
+  let data = localStorage.getItem('arrayInputValue').split(","); // mengambil data dari localStorage
+
+  for (let i = 0; i < data.length; i++) {
+    if (data !== "") {
+      create_span(data[i]); // membuat span dan mengisinya dengan data dari localStorage
+    }
+  }
+}
+
+// TODO: handle input yg sama
+
+// handle event onenter
+input.addEventListener("keyup", function (event) {
+  if (event.keyCode === 13 && input.value !== "") {
+    event.preventDefault();
+
+    document.getElementById("input_button").click();
+  }
+});
+
 function add_value() {
-  let input = document.getElementById("input");
   let inputValue = input.value; // mengambil nilai input
 
   if (inputValue !== "") {
-    let span = document.createElement("SPAN"); // membuat element Span <span></span>
-    span.className = "content_span"; // memberi element Span sebuah class <span class="content_span"></span>
-    span.innerHTML = inputValue; // memberi isi text ke dalam element Span <span class="content_span">asdasdadads</span>
+    arrayInputValue.push(inputValue); // menyimpan hasil input ke dalam array
 
-    let spanClose = document.createElement("SPAN"); // membuat element Span <span></span>
-    spanClose.className = "content_span_close"; // memberi element Span sebuah class <span class="content_span_close"></span>
-    spanClose.innerHTML = "\u00D7" // memberi text "x" ke dalam element Span <span class="content_span_close">x</span>
+    if (typeof(Storage) !== "undefined") {
+      localStorage.setItem("arrayInputValue", arrayInputValue); // menyimpan array ke localStorage
+    } else {
+      header_info.innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
 
-    span.appendChild(spanClose); // menggabungkan spanClose ke dalam span
-
-    spanClose.addEventListener("click", function () {
-      span.classList.add("content_none");
-    });
-
-    let content = document.getElementById("content");
-    content.appendChild(span); // menggabungkan span ke dalam div content
+    create_span(inputValue); // membuat span dan mengisinya dengan data dari inputValue
   }
 
   input.value = ""; // mengosongkan value dari input
 }
 
-// handle event onenter
-input.addEventListener("keyup", function (keyboardEvent) {
-  if (keyboardEvent.keyCode === 13 && input.value !== "") {
-    document.getElementById("input_button").click();
-  }
-});
+function create_span(data) {
+  let span = document.createElement("SPAN"); // membuat element Span <span></span>
+  span.className = "content_span"; // memberi element Span sebuah class <span class="content_span"></span>
+  span.innerHTML = data; // memberi isi text ke dalam element Span <span class="content_span">asdasdadads</span>
 
-/*
-Resources:
-https://www.w3schools.com/howto/howto_js_todolist.asp
-https://www.w3schools.com/tags/tag_input.asp
-https://www.w3schools.com/tags/tag_button.asp
-https://www.w3schools.com/js/js_htmldom.asp
-https://www.w3schools.com/js/js_htmldom_document.asp
-https://www.w3schools.com/jsref/met_document_createtextnode.asp
-https://www.w3schools.com/jsref/met_node_appendchild.asp
-https://www.w3schools.com/jsref/met_document_getelementsbyclassname.asp
-*/
+  let spanClose = document.createElement("SPAN"); // membuat element Span <span></span>
+  spanClose.className = "content_span_close"; // memberi element Span sebuah class <span class="content_span_close"></span>
+  spanClose.innerHTML = "\u00D7" // memberi text "x" ke dalam element Span <span class="content_span_close">x</span>
+  span.appendChild(spanClose); // menggabungkan spanClose ke dalam span
+
+  spanClose.addEventListener("click", function () {
+    let dataStorage = localStorage.getItem("arrayInputValue").split(",");
+
+    let dataSpan = span.innerHTML.split("<")[0];
+    let dataIndex = dataStorage.indexOf(dataSpan);
+
+    dataStorage.splice(dataIndex, 1);
+
+    localStorage.setItem("arrayInputValue", dataStorage);
+    arrayInputValue = dataStorage;
+
+    spanClose.parentNode.parentNode.removeChild(spanClose.parentNode);
+  });
+
+  content.appendChild(span); // menggabungkan span ke dalam div content
+}
