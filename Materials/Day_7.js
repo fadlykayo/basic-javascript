@@ -13,11 +13,13 @@ function add_value() {
 
     span.appendChild(spanClose); // menggabungkan spanClose ke dalam span
 
+    spanClose.addEventListener("click", function () {
+      spanClose.parentNode.parentNode.removeChild(spanClose.parentNode);
+    });
+
     let content = document.getElementById("content");
     content.appendChild(span); // menggabungkan span ke dalam div content
   }
-
-  delete_value(); // fungsi untuk mendelete list
 
   input.value = ""; // mengosongkan value dari input
 }
@@ -28,17 +30,6 @@ input.addEventListener("keyup", function (keyboardEvent) {
     document.getElementById("input_button").click();
   }
 });
-
-function delete_value() {
-  let span = document.getElementsByClassName("content_span");
-  let spanClose = document.getElementsByClassName("content_span_close");
-
-  for (let i = 0; i < span.length; i++) {
-    spanClose[i].addEventListener("click", function () {
-      span[i].classList.add("content_none");
-    });
-  }
-}
 
 /*
 Resources:
