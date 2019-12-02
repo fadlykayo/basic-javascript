@@ -14,7 +14,7 @@ function add_value() {
     span.appendChild(spanClose); // menggabungkan spanClose ke dalam span
 
     spanClose.addEventListener("click", function () {
-      spanClose.parentNode.parentNode.removeChild(spanClose.parentNode);
+      span.classList.add("content_none");
     });
 
     let content = document.getElementById("content");
