@@ -1,7 +1,8 @@
 let input = document.getElementById("input");
+let input_button = document.getElementById("input_button");
 let content = document.getElementById("content");
 let header_info = document.getElementById("header_info");
-let localData = localStorage.getItem('arrayInputValue') ? localStorage.getItem('arrayInputValue').split(",") : []; // menampilkan data di localStorage dan merubahnya menjadi array
+let localData = localStorage.getItem("arrayInputValue") ? localStorage.getItem("arrayInputValue").split(",") : []; // menampilkan data di localStorage dan merubahnya menjadi array
 
 let arrayInputValue = [];
 
@@ -11,7 +12,7 @@ if (!arrayInputValue.length && localStorage.getItem("arrayInputValue") && localS
 }
 
 if (localData.length && localData[0] !== "") {
-  let data = localStorage.getItem('arrayInputValue').split(","); // mengambil data dari localStorage
+  let data = localStorage.getItem("arrayInputValue").split(","); // mengambil data dari localStorage
 
   for (let i = 0; i < data.length; i++) {
     if (data !== "") {
@@ -21,20 +22,19 @@ if (localData.length && localData[0] !== "") {
 }
 
 // handle event onenter
-input.addEventListener("keyup", function (event) {
+input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13 && input.value !== "") {
-    event.preventDefault();
-
-    document.getElementById("input_button").click();
+    input_button.click();
   }
 });
 
-function add_value() {
+// handle event onclick
+input_button.addEventListener("click", function(event) {
   let inputValue = input.value; // mengambil nilai input
 
   // jika nilai input sudah exist di list
   if (arrayInputValue.indexOf(inputValue) !== -1) {
-    alert('Todo list sudah terdaftar!');
+    alert("Todo list sudah terdaftar!");
 
     return false;
   }
@@ -49,10 +49,10 @@ function add_value() {
     }
 
     create_span(inputValue); // membuat span dan mengisinya dengan data dari inputValue
-  }
 
-  input.value = ""; // mengosongkan value dari input
-}
+    input.value = ""; // mengosongkan value dari input
+  }
+});
 
 function create_span(data) {
   let span = document.createElement("SPAN"); // membuat element Span <span></span>
@@ -65,7 +65,7 @@ function create_span(data) {
   span.appendChild(spanClose); // menggabungkan spanClose ke dalam span
 
   // logic delete list
-  spanClose.addEventListener("click", function () {
+  spanClose.addEventListener("click", function() {
     let dataStorage = localStorage.getItem("arrayInputValue").split(",");
 
     let dataSpan = span.innerHTML.split("<")[0];

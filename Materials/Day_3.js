@@ -103,7 +103,7 @@ function myFunction2(x, y, z) {
 function myFunction2(arrayData) {
   let hasil;
 
-  hasil = arrayData.sort(function (a,b) {
+  hasil = arrayData.sort(function(a,b) {
   	return a-b;
   });
 
@@ -267,7 +267,7 @@ FILTER
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 // ES5
-var divisibleByThrreeES5 = array.filter(function (v) {
+var divisibleByThrreeES5 = array.filter(function(v) {
   return v % 3 === 0;
 });
 

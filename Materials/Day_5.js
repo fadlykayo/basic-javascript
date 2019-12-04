@@ -1,4 +1,4 @@
-function sort (array) {
+function sort(array) {
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
       if (array[i] > array[j]) {
@@ -84,7 +84,7 @@ Popular string methods:
 
 let arr = [4,7,9,3,5,7,9,2,6,3,5,2,4];
 
-let result = arr.sort(function (a,b) {
+let result = arr.sort(function(a,b) {
   return b-a;
 });
 

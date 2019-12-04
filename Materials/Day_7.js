@@ -1,4 +1,16 @@
-function add_value() {
+let input = document.getElementById("input");
+let input_button = document.getElementById("input_button");
+let content = document.getElementById("content");
+
+// handle event onenter
+input.addEventListener("keyup", function(keyboardEvent) {
+  if (keyboardEvent.keyCode === 13 && input.value !== "") {
+    document.getElementById("input_button").click();
+  }
+});
+
+// handle event onclick
+input_button.addEventListener("click", function(event) {
   let input = document.getElementById("input");
   let inputValue = input.value; // mengambil nilai input
 
@@ -13,21 +25,13 @@ function add_value() {
 
     span.appendChild(spanClose); // menggabungkan spanClose ke dalam span
 
-    spanClose.addEventListener("click", function () {
+    spanClose.addEventListener("click", function() {
       span.classList.add("content_none");
     });
 
-    let content = document.getElementById("content");
     content.appendChild(span); // menggabungkan span ke dalam div content
-  }
 
-  input.value = ""; // mengosongkan value dari input
-}
-
-// handle event onenter
-input.addEventListener("keyup", function (keyboardEvent) {
-  if (keyboardEvent.keyCode === 13 && input.value !== "") {
-    document.getElementById("input_button").click();
+    input.value = ""; // mengosongkan value dari input
   }
 });
 
