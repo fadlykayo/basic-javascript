@@ -20,8 +20,6 @@ if (localData.length && localData[0] !== "") {
   }
 }
 
-// TODO: handle input yg sama
-
 // handle event onenter
 input.addEventListener("keyup", function (event) {
   if (event.keyCode === 13 && input.value !== "") {
@@ -33,6 +31,13 @@ input.addEventListener("keyup", function (event) {
 
 function add_value() {
   let inputValue = input.value; // mengambil nilai input
+
+  // jika nilai input sudah exist di list
+  if (arrayInputValue.indexOf(inputValue) !== -1) {
+    alert('Todo list sudah terdaftar!');
+
+    return false;
+  }
 
   if (inputValue !== "") {
     arrayInputValue.push(inputValue); // menyimpan hasil input ke dalam array
@@ -59,6 +64,7 @@ function create_span(data) {
   spanClose.innerHTML = "\u00D7" // memberi text "x" ke dalam element Span <span class="content_span_close">x</span>
   span.appendChild(spanClose); // menggabungkan spanClose ke dalam span
 
+  // logic delete list
   spanClose.addEventListener("click", function () {
     let dataStorage = localStorage.getItem("arrayInputValue").split(",");
 

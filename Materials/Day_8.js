@@ -18,8 +18,6 @@ if (localData.length && localData[0] !== "") {
       create_span(data[i]); // membuat span dan mengisinya dengan data dari localStorage
     }
   }
-
-  delete_value(); // fungsi untuk mendelete list
 }
 
 // handle event onenter
@@ -31,27 +29,15 @@ input.addEventListener("keyup", function (event) {
   }
 });
 
-function delete_value() {
-  let span = document.getElementsByClassName("content_span");
-  let spanClose = document.getElementsByClassName("content_span_close");
-  let data = localStorage.getItem("arrayInputValue").split(",");
-
-  for (let i = 0; i < span.length; i++) {
-    spanClose[i].addEventListener("click", function () {
-      data.splice(i, 1);
-
-      localStorage.setItem("arrayInputValue", data);
-      arrayInputValue = data;
-
-      span[i].classList.add("content_none");
-
-      document.location.reload();
-    });
-  }
-}
-
-function add_value() { 
+function add_value() {
   let inputValue = input.value; // mengambil nilai input
+
+  // jika nilai input sudah exist di list
+  if (arrayInputValue.indexOf(inputValue) !== -1) {
+    alert('Todo list sudah terdaftar!');
+
+    return false;
+  }
 
   if (inputValue !== "") {
     arrayInputValue.push(inputValue); // menyimpan hasil input ke dalam array
@@ -65,8 +51,6 @@ function add_value() {
     create_span(inputValue); // membuat span dan mengisinya dengan data dari inputValue
   }
 
-  delete_value(); // fungsi untuk mendelete list
-
   input.value = ""; // mengosongkan value dari input
 }
 
@@ -79,6 +63,21 @@ function create_span(data) {
   spanClose.className = "content_span_close"; // memberi element Span sebuah class <span class="content_span_close"></span>
   spanClose.innerHTML = "\u00D7" // memberi text "x" ke dalam element Span <span class="content_span_close">x</span>
   span.appendChild(spanClose); // menggabungkan spanClose ke dalam span
+
+  // logic delete list
+  spanClose.addEventListener("click", function () {
+    let dataStorage = localStorage.getItem("arrayInputValue").split(",");
+
+    let dataSpan = span.innerHTML.split("<")[0];
+    let dataIndex = dataStorage.indexOf(dataSpan);
+
+    dataStorage.splice(dataIndex, 1);
+
+    localStorage.setItem("arrayInputValue", dataStorage);
+    arrayInputValue = dataStorage;
+
+    spanClose.parentNode.parentNode.removeChild(spanClose.parentNode);
+  });
 
   content.appendChild(span); // menggabungkan span ke dalam div content
 }
